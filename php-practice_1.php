@@ -17,14 +17,10 @@ echo '現在時刻は、' . date("Y年m月d日 H時i分s秒") .'です。';
 
 // Q4 条件分岐-1 if文
 $device = 'windows';
-if ($device === 'windows' or 'mac' ){
-    if($device === 'windows'){
-      echo '使用OSは、windowsです。';
-      } else {
-      echo '使用OSは、macです。';
-      }
+if ($device === 'windows' || $device === 'mac') {
+  echo "使用OSは、{$device}です。";
 } else {
-  echo 'どちらでもありません。';
+  echo "どちらでもありません。";
 }
 
 // Q5 条件分岐-2 三項演算子
@@ -56,7 +52,7 @@ $city = [
 // Q8 連想配列-2
   foreach($city as $key => $val){
     if($key === '埼玉県'){
-      echo $key.'の県庁所在地は、'.$val .'です。';
+    echo $key . 'の県庁所在地は、' . $val . 'です。';
     }
   }
 
@@ -65,8 +61,8 @@ $city['愛知県'] = '名古屋市';
 $city['大阪府'] = '大阪市';
 
 foreach($city as $kanto => $capital){
-  if(in_array($kanto,$pref)){
-    echo $kanto.'の県庁所在地は、'.$capital .'です。'."\n";
+  if (in_array($kanto, $pref)) {
+    echo $kanto . 'の県庁所在地は、' . $capital . 'です。' . "\n";
   } else {
     echo $kanto.'は関東地方ではありません。'."\n";
   }
@@ -105,26 +101,21 @@ distinguishNum(10);
 function evaluateGrade($grade){
   switch($grade){
     case 'A':
-      echo '合格です。';
-      return;
+      return '合格です。';
   
     case 'B':
-      echo '合格です。';
-      return;
+      return '合格です。';
 
     case 'C':
-      echo '合格ですが追加課題があります。';
-      return;
+      return '合格ですが追加課題があります。';
     
     case 'D':
-      echo '不合格です。';
-      return;
+      return '不合格です。';
 
     default:
-      echo '判定不明です。講師に問い合わせてください。';
-      return;
-    }
+      return '判定不明です。講師に問い合わせてください。';
+  }
 }
-evaluateGrade('A');
-evaluateGrade('D');
+echo evaluateGrade('A');
+echo evaluateGrade('D');
 ?>
