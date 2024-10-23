@@ -12,14 +12,17 @@ echo $num /= 2;
 
 
 // Q3 日付操作
+date_default_timezone_set('Asia/Tokyo');
 echo '現在時刻は、' . date("Y年m月d日 H時i分s秒") .'です。';
 
 // Q4 条件分岐-1 if文
 $device = 'windows';
-if ($device === 'windows'){
-  echo '使用OSは、windowsです。';
-} else if($device === 'mac'){
-  echo '使用OSは、macです。';
+if ($device === 'windows' or 'mac' ){
+    if($device === 'windows'){
+      echo '使用OSは、windowsです。';
+      } else {
+      echo '使用OSは、macです。';
+      }
 } else {
   echo 'どちらでもありません。';
 }
@@ -31,7 +34,7 @@ $age2 =($age < 18)? '未成年です。' : '成人です。';
 echo $age2;
 
 // Q6 配列
-$pref = ['茨城県','群馬県','栃木県','千葉県','埼玉県','東京都','神奈川県'];
+$pref = ['神奈川県','茨城県','群馬県','栃木県','千葉県','埼玉県','東京都'];
 echo $prefecture[2] .'と' .$prefecture[3] .'は関東地方の都道府県です。';
 
 // Q7 連想配列-1
@@ -103,24 +106,25 @@ function evaluateGrade($grade){
   switch($grade){
     case 'A':
       echo '合格です。';
-      break;
+      return;
   
     case 'B':
       echo '合格です。';
-      break;
+      return;
 
     case 'C':
       echo '合格ですが追加課題があります。';
-      break;
+      return;
     
-    case 'B':
+    case 'D':
       echo '不合格です。';
-      break;
+      return;
 
     default:
       echo '判定不明です。講師に問い合わせてください。';
-      break;
+      return;
     }
 }
 evaluateGrade('A');
+evaluateGrade('D');
 ?>

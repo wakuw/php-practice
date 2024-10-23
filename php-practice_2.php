@@ -41,11 +41,10 @@ foreach ($personalInfos as $index => $val){
 }
 //問題3
 
+
 $ageList = [25, 30, 18];
-foreach ($personalInfos as $index => $val){
-    foreach ($ageList as $ind => $age){
+foreach ($ageList as $ind => $age){
     $personalInfos[$ind]['age'] = $age;
-    }
 }
 var_dump($personalInfos);
 
@@ -71,9 +70,21 @@ $yamada = new Student(120,'山田');
 echo '学籍番号'.$yamada->studentId.'番の生徒は'.$yamada->studentName.'です。'
 
 // Q4 オブジェクト-2
-public function attend($lesson)
+class Student
 {
-    echo $this->studentName.'は'.$lesson.'の授業に参加しました。学籍番号：'.$this->studentId;
+    public $studentId;
+    public $studentName;
+
+    public function __construct($id, $name)
+    {
+        $this->studentId = $id;
+        $this->studentName = $name;
+    }
+    
+    public function attend($lesson)
+    {
+        echo $this->studentName.'は'.$lesson.'の授業に参加しました。学籍番号：'.$this->studentId;
+    }
 }
 
 $yamada = new Student(120,'山田');
@@ -88,7 +99,6 @@ echo $now2->format('Y-m-d');
 //問題2
 $today = new DateTime('now');
 $day = new DateTime('1992-04-25');
-$diff = $day->diff($today);
-echo $diff->format('あの日から%a日経過しました。');
+echo $day->diff($today)->format('あの日から%a日経過しました。');
 
 ?>
